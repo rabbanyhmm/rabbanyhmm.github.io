@@ -1,738 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyExistences - Ultimate Developer Profile</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rabbany</title>
+<meta name="description" content="A reference profile of Rabbany — creative frontend engineer, technical animator, and tool builder." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EFE3;
+    --panel:#EAE2CE;
+    --panel-header:#DDD1B0;
+    --ink:#221E18;
+    --ink-muted:#55503F;
+    --rule:#35302A;
+    --link:#0645AD;
+    --accent:#7A2E2E;
+    --serif:'PT Serif', Georgia, 'Times New Roman', serif;
+    --sans:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
 
-        :root {
-            --primary-glow: #00ff88;
-            --secondary-glow: #ff0080;
-            --tertiary-glow: #0080ff;
-            --bg-dark: #0a0a0a;
-            --card-glass: rgba(255, 255, 255, 0.05);
-            --text-light: #ffffff;
-        }
+  *,*::before,*::after{ box-sizing:border-box; }
 
-        body {
-            font-family: 'Orbitron', monospace;
-            background: var(--bg-dark);
-            color: var(--text-light);
-            overflow-x: hidden;
-            position: relative;
-            min-height: 100vh;
-        }
+  html{ background:var(--paper); }
+  @media (prefers-reduced-motion:no-preference){
+    html{ scroll-behavior:smooth; }
+  }
 
-        /* Neural Network Background */
-        .neural-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: radial-gradient(circle at 20% 50%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
-                       radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
-                       radial-gradient(circle at 40% 80%, rgba(0, 128, 255, 0.1) 0%, transparent 50%);
-            animation: neuralPulse 8s ease-in-out infinite;
-        }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:1.0625rem;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
 
-        @keyframes neuralPulse {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.1); }
-        }
+  a{ color:var(--link); text-decoration-thickness:1px; text-underline-offset:2px; }
+  a:hover{ text-decoration-thickness:2px; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
 
-        /* Matrix Rain Effect */
-        .matrix-rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
+  img{ max-width:100%; display:block; }
 
-        .matrix-column {
-            position: absolute;
-            top: -100%;
-            font-family: 'Space Mono', monospace;
-            font-size: 14px;
-            color: var(--primary-glow);
-            opacity: 0.7;
-            animation: matrixFall 15s linear infinite;
-        }
+  /* ---------- Masthead ---------- */
+  .masthead{ max-width:1080px; margin:0 auto; padding:2.75rem 1.5rem 1rem; }
+  .masthead h1{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:clamp(2.5rem, 6vw, 4.25rem);
+    letter-spacing:-0.01em;
+    margin:0;
+    line-height:1;
+  }
+  .masthead .role{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:1.05rem;
+    color:var(--ink-muted);
+    margin:.6rem 0 0;
+  }
+  .rule-group{ max-width:1080px; margin:0 auto; padding:0 1.5rem; }
+  .rule-thick{ border-top:3px solid var(--ink); }
+  .rule-thin{ border-top:1px solid var(--ink); margin-top:3px; }
 
-        @keyframes matrixFall {
-            to { transform: translateY(100vh); }
-        }
+  /* ---------- Layout ---------- */
+  .page{ max-width:1080px; margin:0 auto; padding:2rem 1.5rem 3rem; }
+  .article-wrap::after{ content:""; display:block; clear:both; }
 
-        /* Main Container */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-            position: relative;
-            z-index: 1;
-        }
+  .infobox{
+    float:right;
+    width:290px;
+    margin:0 0 1.75rem 2rem;
+    background:var(--panel);
+    border:1px solid var(--rule);
+    font-family:var(--sans);
+    font-size:.85rem;
+  }
+  .infobox img{ width:100%; height:auto; border-bottom:1px solid var(--rule); }
+  .infobox-caption{
+    padding:.65rem .85rem;
+    font-style:italic;
+    color:var(--ink-muted);
+    border-bottom:1px solid var(--rule);
+    font-size:.82rem;
+    line-height:1.5;
+  }
+  .infobox dl{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:.55rem .75rem;
+    margin:0;
+    padding:.9rem;
+  }
+  .infobox dt{ font-weight:600; color:var(--ink-muted); }
+  .infobox dd{ margin:0; }
 
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 4rem 0;
-            position: relative;
-            perspective: 1000px;
-        }
+  .lede, .toc, .content p, .content li{ max-width:660px; }
 
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 8rem);
-            font-weight: 900;
-            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow), var(--tertiary-glow));
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 3s ease-in-out infinite, textGlow 2s ease-in-out infinite alternate;
-            margin-bottom: 1rem;
-            transform-style: preserve-3d;
-        }
+  .lede{ margin:0 0 1.5rem; font-size:1.09rem; }
+  .lede sup a{ text-decoration:none; }
 
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
+  .toc{
+    background:var(--panel);
+    border:1px solid var(--rule);
+    padding:1rem 1.25rem;
+    margin:0 0 2rem;
+    font-family:var(--sans);
+    font-size:.9rem;
+  }
+  .toc-title{ font-weight:700; margin:0 0 .5rem; font-family:var(--serif); font-size:1rem; }
+  .toc ol{ margin:0; padding-left:1.25rem; }
+  .toc ol ol{ margin-top:.35rem; padding-left:1.25rem; }
+  .toc li{ margin:.25rem 0; }
+  .toc a{ text-decoration:none; }
+  .toc a:hover{ text-decoration:underline; }
 
-        @keyframes textGlow {
-            from { text-shadow: 0 0 20px var(--primary-glow), 0 0 40px var(--primary-glow); }
-            to { text-shadow: 0 0 40px var(--secondary-glow), 0 0 80px var(--secondary-glow); }
-        }
+  h2{
+    clear:both;
+    font-family:var(--serif);
+    font-size:1.55rem;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:.35rem;
+    margin:2.75rem 0 1rem;
+    scroll-margin-top:1rem;
+  }
+  h3{
+    font-family:var(--serif);
+    font-size:1.18rem;
+    margin:1.75rem 0 .6rem;
+    scroll-margin-top:1rem;
+  }
+  .content p{ margin:0 0 1.05rem; }
+  .content ul, .content ol{ padding-left:1.35rem; margin:0 0 1.05rem; }
+  .content li{ margin:0 0 .75rem; }
+  .stat{ color:var(--ink-muted); font-family:var(--sans); font-size:.85rem; }
 
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 3rem;
-            animation: float 4s ease-in-out infinite;
-        }
+  .langbars{ max-width:520px; margin:0 0 1.5rem; font-family:var(--sans); font-size:.85rem; }
+  .langbar-row{ display:grid; grid-template-columns:100px 1fr 42px; align-items:center; gap:.65rem; margin:.4rem 0; }
+  .langbar-track{ background:var(--panel); border:1px solid var(--rule); height:14px; }
+  .langbar-fill{ background:var(--ink); height:100%; display:block; }
+  .langbar-pct{ text-align:right; color:var(--ink-muted); }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-        }
+  .content .linklist{ list-style:none; padding:0; }
+  .content .linklist li{ margin:0 0 .5rem; }
 
-        /* 3D Profile Card */
-        .profile-card {
-            background: var(--card-glass);
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(0, 255, 136, 0.3);
-            border-radius: 25px;
-            padding: 3rem;
-            margin: 3rem auto;
-            max-width: 800px;
-            transform: rotateX(10deg) rotateY(-5deg);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 30px 60px rgba(0, 255, 136, 0.2),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
+  .refs{ font-family:var(--sans); font-size:.85rem; padding-left:1.5rem; }
+  .refs li{ margin:0 0 .55rem; word-break:break-word; }
+  .refs .back{ text-decoration:none; margin-right:.35rem; }
 
-        .profile-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.1), transparent);
-            animation: scanLine 4s linear infinite;
-        }
+  footer.page-footer{
+    max-width:1080px;
+    margin:0 auto;
+    padding:1.5rem 1.5rem 3rem;
+    border-top:1px solid var(--rule);
+    font-family:var(--sans);
+    font-size:.8rem;
+    color:var(--ink-muted);
+  }
 
-        @keyframes scanLine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
+  @media (max-width:800px){
+    .infobox{ float:none; width:100%; margin:0 0 1.75rem; }
+    .masthead h1{ font-size:2.5rem; }
+    .langbar-row{ grid-template-columns:84px 1fr 38px; }
+  }
 
-        .profile-card:hover {
-            transform: rotateX(0deg) rotateY(0deg) translateZ(30px) scale(1.02);
-            border-color: var(--secondary-glow);
-            box-shadow: 0 40px 80px rgba(255, 0, 128, 0.3),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
-
-        /* Tech Stack Grid */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1.5rem;
-            margin: 4rem 0;
-            perspective: 1000px;
-        }
-
-        .tech-item {
-            background: var(--card-glass);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            border-radius: 15px;
-            padding: 1.5rem 1rem;
-            text-align: center;
-            transform: rotateX(20deg) translateZ(20px);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tech-item::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .tech-item:hover::after {
-            left: 100%;
-        }
-
-        .tech-item:hover {
-            transform: rotateX(0deg) translateZ(40px) scale(1.1);
-            border-color: var(--secondary-glow);
-            box-shadow: 0 20px 40px rgba(255, 0, 128, 0.3);
-        }
-
-        .tech-logo {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            filter: drop-shadow(0 0 10px var(--primary-glow));
-        }
-
-        .tech-name {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--primary-glow);
-        }
-
-        /* Stats Cards */
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-
-        .stat-card {
-            background: var(--card-glass);
-            border: 2px solid rgba(0, 128, 255, 0.3);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            transform: perspective(1000px) rotateY(5deg);
-            transition: all 0.5s ease;
-            backdrop-filter: blur(15px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow), var(--tertiary-glow));
-            animation: progressBar 3s ease-in-out infinite;
-        }
-
-        @keyframes progressBar {
-            0%, 100% { transform: translateX(-100%); }
-            50% { transform: translateX(100%); }
-        }
-
-        .stat-card:hover {
-            transform: perspective(1000px) rotateY(0deg) translateZ(20px);
-            border-color: var(--primary-glow);
-            box-shadow: 0 25px 50px rgba(0, 255, 136, 0.3);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--primary-glow);
-            text-shadow: 0 0 20px var(--primary-glow);
-            animation: numberPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes numberPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-top: 0.5rem;
-        }
-
-        /* Interactive Sections */
-        .section {
-            margin: 6rem 0;
-            position: relative;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary-glow);
-            text-shadow: 0 0 30px var(--primary-glow);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow));
-            border-radius: 2px;
-        }
-
-        /* Contact Section */
-        .contact-card {
-            background: var(--card-glass);
-            border: 2px solid rgba(255, 0, 128, 0.3);
-            border-radius: 25px;
-            padding: 3rem;
-            text-align: center;
-            backdrop-filter: blur(20px);
-            transform: perspective(1000px) rotateX(10deg);
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255, 0, 128, 0.1), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .contact-card:hover::before {
-            opacity: 1;
-        }
-
-        .contact-card:hover {
-            transform: perspective(1000px) rotateX(0deg) translateZ(20px);
-            border-color: var(--secondary-glow);
-            box-shadow: 0 30px 60px rgba(255, 0, 128, 0.4);
-        }
-
-        .discord-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1.2rem;
-            color: var(--secondary-glow);
-            text-decoration: none;
-            padding: 1rem 2rem;
-            border: 2px solid var(--secondary-glow);
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            background: rgba(255, 0, 128, 0.1);
-        }
-
-        .discord-link:hover {
-            background: var(--secondary-glow);
-            color: white;
-            transform: scale(1.1) translateZ(10px);
-            box-shadow: 0 15px 30px rgba(255, 0, 128, 0.5);
-        }
-
-        /* Visitor Counter */
-        .visitor-counter {
-            text-align: center;
-            margin: 3rem 0;
-        }
-
-        .counter-display {
-            font-size: 1.5rem;
-            color: var(--tertiary-glow);
-            text-shadow: 0 0 20px var(--tertiary-glow);
-            animation: counterGlow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes counterGlow {
-            from { text-shadow: 0 0 20px var(--tertiary-glow); }
-            to { text-shadow: 0 0 40px var(--tertiary-glow), 0 0 60px var(--tertiary-glow); }
-        }
-
-        /* GitHub Snake Animation Container */
-        .snake-container {
-            margin: 4rem 0;
-            text-align: center;
-            border-radius: 20px;
-            overflow: hidden;
-            background: var(--card-glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 255, 136, 0.2);
-        }
-
-        .snake-container img {
-            width: 100%;
-            height: auto;
-            filter: drop-shadow(0 0 20px var(--primary-glow));
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .hero-title {
-                font-size: 3rem;
-            }
-            
-            .tech-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-                gap: 1rem;
-            }
-            
-            .stats-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .profile-card,
-            .contact-card {
-                padding: 2rem;
-                transform: none;
-            }
-        }
-
-        /* Cursor Trail Effect */
-        .cursor-trail {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--primary-glow), transparent);
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        /* Scroll Progress Bar */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow), var(--tertiary-glow));
-            z-index: 1000;
-            transform-origin: left;
-            transform: scaleX(0);
-            transition: transform 0.1s;
-        }
-    </style>
+  @media print{
+    body{ background:#fff; }
+    .infobox, .toc{ background:#fff; }
+  }
+</style>
 </head>
 <body>
-    <div class="progress-bar"></div>
-    <div class="neural-bg"></div>
-    <div class="matrix-rain" id="matrixRain"></div>
-    
-    <div class="container">
-        <!-- Hero Section -->
-        <section class="hero">
-            <h1 class="hero-title">Hi there 👋</h1>
-            <p class="hero-subtitle">I'm a passionate developer who loves building things and constantly learning new technologies.</p>
-        </section>
 
-        <!-- Profile Card -->
-        <div class="profile-card">
-            <h2 class="section-title">🚀 About Me</h2>
-            <div style="text-align: left; font-size: 1.1rem; line-height: 1.8; color: rgba(255, 255, 255, 0.9);">
-                <p>💻 Developer with a passion for clean code and creative solutions</p>
-                <p>🌱 Currently exploring advanced C++, memory editing, and Node.js</p>
-                <p>🛠️ I enjoy building tools, bots, and custom Windows applications</p>
-                <p>✉️ Reach me at: <a href="https://discord.com/users/252912912375480320" class="discord-link" style="display: inline; padding: 0.5rem 1rem; font-size: 1rem;">Discord!</a></p>
-            </div>
-        </div>
+<header class="masthead">
+  <h1>Rabbany</h1>
+  <p class="role">Creative frontend engineer, technical animator, and tool builder</p>
+</header>
+<div class="rule-group">
+  <div class="rule-thick"></div>
+  <div class="rule-thin"></div>
+</div>
 
-        <!-- Tech Stack -->
-        <section class="section">
-            <h2 class="section-title">💻 Languages and Tools I Use</h2>
-            <div class="tech-grid">
-                <div class="tech-item">
-                    <div class="tech-logo">⚡</div>
-                    <div class="tech-name">C++</div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-logo">🔷</div>
-                    <div class="tech-name">C#</div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-logo">🎨</div>
-                    <div class="tech-name">CSS3</div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-logo">🟨</div>
-                    <div class="tech-name">JavaScript</div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-logo">🐍</div>
-                    <div class="tech-name">Python</div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-logo">📄</div>
-                    <div class="tech-name">HTML5</div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-logo">🟢</div>
-                    <div class="tech-name">Node.js</div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-logo">🎭</div>
-                    <div class="tech-name">Photoshop</div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-logo">🌿</div>
-                    <div class="tech-name">Git</div>
-                </div>
-            </div>
-        </section>
+<main class="page">
+  <div class="article-wrap">
 
-        <!-- Stats Section -->
-        <section class="section">
-            <h2 class="section-title">📊 GitHub Stats & Performance</h2>
-            <div class="stats-container">
-                <div class="stat-card">
-                    <div class="stat-number" id="commits">0</div>
-                    <div class="stat-label">Total Commits</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="repos">0</div>
-                    <div class="stat-label">Repositories</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="streak">0</div>
-                    <div class="stat-label">Day Streak</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="languages">0</div>
-                    <div class="stat-label">Languages</div>
-                </div>
-            </div>
-            
-            <!-- GitHub Stats Images -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0;">
-                <div class="stat-card">
-                    <img src="https://github-readme-stats.vercel.app/api?username=rabbanyhmm&theme=dark&hide_border=false&include_all_commits=true&count_private=false" alt="GitHub Stats" style="width: 100%; border-radius: 10px;">
-                </div>
-                <div class="stat-card">
-                    <img src="https://nirzak-streak-stats.vercel.app/?user=rabbanyhmm&theme=dark&hide_border=false" alt="GitHub Streak" style="width: 100%; border-radius: 10px;">
-                </div>
-            </div>
-            
-            <div class="stat-card" style="margin: 2rem 0;">
-                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rabbanyhmm&theme=dark&hide_border=false&include_all_commits=true&count_private=false&layout=compact" alt="Top Languages" style="width: 100%; border-radius: 10px;">
-            </div>
-        </section>
+    <aside class="infobox" aria-label="Summary">
+      <img src="https://avatars.githubusercontent.com/u/104850985?v=4" alt="Rabbany's GitHub avatar" width="290" height="290" loading="lazy">
+      <p class="infobox-caption">&ldquo;My bed is a magical place where I suddenly remember everything I forgot to do.&rdquo; — Rabbany's GitHub status</p>
+      <dl>
+        <dt>Occupation</dt><dd>Creative frontend engineer, technical animator</dd>
+        <dt>Also known as</dt><dd>rbnyx, myexistences (earlier handle)</dd>
+        <dt>Location</dt><dd>Mars</dd>
+        <dt>Known for</dt><dd>WindowCaptureHider, DnSpyMCP, AuthLX</dd>
+        <dt>Organization</dt><dd>AuthLX</dd>
+        <dt>Website</dt><dd><a href="https://authlx.com">authlx.com</a></dd>
+        <dt>GitHub</dt><dd><a href="https://github.com/rabbanyhmm">rabbanyhmm</a></dd>
+        <dt>Repositories</dt><dd>17 public</dd>
+        <dt>Followers</dt><dd>29</dd>
+      </dl>
+    </aside>
 
-        <!-- Trophies -->
-        <section class="section">
-            <h2 class="section-title">🏆 GitHub Trophies</h2>
-            <div class="stat-card">
-                <img src="https://github-profile-trophy.vercel.app/?username=rabbanyhmm&theme=radical&no-frame=false&no-bg=false&margin-w=4" alt="GitHub Trophies" style="width: 100%; border-radius: 10px;">
-            </div>
-        </section>
+    <p class="lede">
+      Rabbany — known on GitHub as rabbanyhmm, and formerly as myexistences — is a creative frontend engineer and technical animator whose public work spans reverse engineering, Windows and Android systems programming, and browser-based motion design.<sup id="cite_ref-1"><a href="#cite_note-1">[1]</a></sup> Across seventeen public repositories and a larger body of private work, they have built tools for .NET and IL2Cpp analysis, screen-capture privacy, Discord automation, and video processing, alongside product-facing interface components and animation systems. They also build and maintain AuthLX, an authentication and licensing platform, and contribute to the open-source is-a-dev/register subdomain registry.
+    </p>
 
-        <!-- Dev Quote -->
-        <section class="section">
-            <h2 class="section-title">✍️ Random Dev Quote</h2>
-            <div class="stat-card">
-                <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Dev Quote" style="width: 100%; border-radius: 10px;">
-            </div>
-        </section>
+    <nav class="toc" aria-label="Contents">
+      <p class="toc-title">Contents</p>
+      <ol>
+        <li><a href="#career">1 Career</a></li>
+        <li><a href="#notable-projects">2 Notable projects</a>
+          <ol>
+            <li><a href="#open-source-tools">2.1 Open-source tools</a></li>
+            <li><a href="#authlx">2.2 AuthLX</a></li>
+            <li><a href="#trusty-authera">2.3 Trusty and Authera</a></li>
+            <li><a href="#authlx">2.4 AuthLX</a></li>
+            <li><a href="#is-a-dev-register">2.5 is-a-dev/register</a></li>
+          </ol>
+        </li>
+        <li><a href="#creative-frontend">3 Creative and frontend engineering</a></li>
+        <li><a href="#technology">4 Technology</a>
+          <ol>
+            <li><a href="#languages">4.1 Languages</a></li>
+            <li><a href="#infrastructure">4.2 Infrastructure and operations</a></li>
+          </ol>
+        </li>
+        <li><a href="#external-links">5 External links</a></li>
+        <li><a href="#references">6 References</a></li>
+      </ol>
+    </nav>
 
-        <!-- Profile Visitor Counter -->
-        <section class="section">
-            <h2 class="section-title">📈 Profile Analytics</h2>
-            <div class="visitor-counter">
-                <div class="counter-display">Profile Visitors</div>
-                <div style="margin: 2rem 0;">
-                    <img src="https://count.getloli.com/get/@rabbanyhmm?theme=moebooru" alt="Profile Views" style="border-radius: 10px; box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);">
-                </div>
-                <div style="margin-top: 1rem;">
-                    <img src="https://visitcount.itsvg.in/api?id=rabbanyhmm&icon=0&color=0" alt="Visit Count" style="border-radius: 10px;">
-                </div>
-            </div>
-        </section>
+    <article class="content">
 
-        <!-- GitHub Snake Animation -->
-        <section class="section">
-            <h2 class="section-title">🐍 Contribution Snake</h2>
-            <div class="snake-container">
-                <picture>
-                    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/rabbanyhmm/rabbanyhmm/raw/refs/heads/output/github-snake-dark.svg" />
-                    <source media="(prefers-color-scheme: light)" srcset="https://github.com/rabbanyhmm/rabbanyhmm/raw/refs/heads/output/github-snake.svg" />
-                    <img alt="github-snake" src="https://github.com/rabbanyhmm/rabbanyhmm/raw/refs/heads/output/github-snake.svg" />
-                </picture>
-            </div>
-        </section>
+      <h2 id="career">1 Career</h2>
+      <p>Rabbany's early public work centered on reverse engineering and Windows systems: IL2Cpp dump analysis, PE inspection, DLL injection, and Dear ImGui overlay tools, alongside security research spanning malware analysis, vault encryption, and anti-cheat systems. This work was published under the handle myexistences, before a rebrand carried out in mid-2026 consolidated their output under the name Rabbany — including a redesigned GitHub profile with curated featured projects and a more deliberate visual identity.</p>
+      <p>Alongside this systems and security work, Rabbany builds full-stack web products in TypeScript, Next.js, Python, and PHP, and maintains a parallel practice in frontend engineering and motion design: animated interface components, editorial-style infographics, and design-forward tooling for both personal and client projects.</p>
 
-        <!-- Contact Section -->
-        <section class="section">
-            <div class="contact-card">
-                <h2 class="section-title">🚀 Let's Connect!</h2>
-                <p style="font-size: 1.1rem; margin-bottom: 2rem; color: rgba(255, 255, 255, 0.8);">
-                    Ready to collaborate on something amazing? Let's build the future together!
-                </p>
-                <a href="https://discord.com/users/252912912375480320" class="discord-link">
-                    <span>💬</span> Connect on Discord
-                </a>
-            </div>
-        </section>
-    </div>
+      <h2 id="notable-projects">2 Notable projects</h2>
+      <p>Selected projects from Rabbany's public and ongoing work:</p>
 
-    <script>
-        // Matrix Rain Effect
-        function createMatrixRain() {
-            const matrixContainer = document.getElementById('matrixRain');
-            const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
-            
-            for (let i = 0; i < 50; i++) {
-                const column = document.createElement('div');
-                column.className = 'matrix-column';
-                column.style.left = `${Math.random() * 100}%`;
-                column.style.animationDelay = `${Math.random() * 15}s`;
-                column.style.animationDuration = `${15 + Math.random() * 10}s`;
-                
-                let text = '';
-                for (let j = 0; j < 20; j++) {
-                    text += characters[Math.floor(Math.random() * characters.length)] + '\n';
-                }
-                column.textContent = text;
-                
-                matrixContainer.appendChild(column);
-            }
-        }
+      <h3 id="open-source-tools">2.1 Open-source tools</h3>
+      <ul>
+        <li><strong>WindowCaptureHider</strong> — Rabbany's most-starred public repository: a lightweight Windows DLL that hides top-level windows from screen-capture utilities such as OBS and the Snipping Tool, using the SetWindowDisplayAffinity API. C++, AGPL-3.0.<sup id="cite_ref-2"><a href="#cite_note-2">[2]</a></sup> <span class="stat">(24 stars, 5 forks)</span></li>
+        <li><strong>DnSpyMCP</strong> — an MCP (Model Context Protocol) server for .NET reverse engineering, exposing 31 tools for IL2Cpp dump analysis, assembly cross-referencing, and network-traffic patching. C#, MIT.<sup id="cite_ref-3"><a href="#cite_note-3">[3]</a></sup> <span class="stat">(8 stars, 3 forks)</span></li>
+        <li><strong>DiscordServerClonner</strong> — a Python tool for duplicating Discord servers, including their emoji and sticker sets, and validating tokens, without requiring administrator permissions on the source server. MIT.<sup id="cite_ref-4"><a href="#cite_note-4">[4]</a></sup> <span class="stat">(1 star, 7 forks)</span></li>
+        <li><strong>VideoCaptionBurner</strong> — an ffmpeg-based Python tool for generating, styling, and burning subtitles into video, with fine control over timing and layout. MIT.<sup id="cite_ref-5"><a href="#cite_note-5">[5]</a></sup> <span class="stat">(2 stars)</span></li>
+        <li><strong>SignatureClone</strong> — a Python research tool for cloning digital signatures between Windows executables, built for PE-format analysis and educational testing.<sup id="cite_ref-6"><a href="#cite_note-6">[6]</a></sup> <span class="stat">(5 stars)</span></li>
+      </ul>
 
-        // Animated Counter
-        function animateCounter(elementId, targetValue, duration = 2000) {
-            const element = document.getElementById(elementId);
-            const start = 0;
-            const increment = targetValue / (duration / 16);
-            let current = start;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= targetValue) {
-                    current = targetValue;
-                    clearInterval(timer);
-                }
-                element.textContent = Math.floor(current);
-            }, 16);
-        }
+      <h3 id="authlx">2.2 AuthLX</h3>
+      <p>AuthLX is an authentication and licensing platform Rabbany builds and maintains, providing SDKs for Python, C++, C#, and Java — with several more languages in progress — plus a Discord bot for managing licenses and users directly from a server.<sup id="cite_ref-7"><a href="#cite_note-7">[7]</a></sup> The package is published on both NuGet and PyPI, under the handles rabbanyhmm and myexistences, with a dedicated Slack workspace for the team behind it.</p>
 
-        // Scroll Progress Bar
-        function updateProgressBar() {
-            const progressBar = document.querySelector('.progress-bar');
-            const scrollTop = document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrollProgress = (scrollTop / scrollHeight) * 100;
-            progressBar.style.transform = `scaleX(${scrollProgress / 100})`;
-        }
+      <h3 id="trusty-authera">2.3 Trusty and Authera</h3>
+      <p>Trusty and Authera are backend and database projects Rabbany hosts on Supabase.</p>
 
-        // Mouse interaction for contact card
-        function setupMouseInteraction() {
-            const contactCard = document.querySelector('.contact-card');
-            
-            contactCard.addEventListener('mousemove', (e) => {
-                const rect = contactCard.getBoundingClientRect();
-                const x = ((e.clientX - rect.left) / rect.width) * 100;
-                const y = ((e.clientY - rect.top) / rect.height) * 100;
-                
-                contactCard.style.setProperty('--x', `${x}%`);
-                contactCard.style.setProperty('--y', `${y}%`);
-            });
-        }
+      <h3 id="authlx">2.4 AuthLX</h3>
+      <p>AuthLX is a Discord application built and operated by Rabbany that has grown past 10,000 users, with ongoing work focused on scaling its infrastructure to support continued growth.</p>
 
-        // Initialize everything
-        document.addEventListener('DOMContentLoaded', () => {
-            createMatrixRain();
-            setupMouseInteraction();
-            
-            // Animate counters
-            setTimeout(() => {
-                animateCounter('commits', 1247);
-                animateCounter('repos', 42);
-                animateCounter('streak', 156);
-                animateCounter('languages', 9);
-            }, 1000);
-            
-            // Scroll progress
-            window.addEventListener('scroll', updateProgressBar);
-            
-            // Add entrance animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
-                    }
-                });
-            }, observerOptions);
-            
-            document.querySelectorAll('.section').forEach(section => {
-                observer.observe(section);
-            });
-        });
+      <h3 id="is-a-dev-register">2.5 is-a-dev/register</h3>
+      <p>Rabbany is an active contributor and pull-request manager for is-a-dev/register, the open-source repository behind is-a.dev — a free service that lets developers claim a personal *.is-a.dev subdomain by opening a pull request.<sup id="cite_ref-8"><a href="#cite_note-8">[8]</a></sup></p>
 
-        // Add CSS for fade in animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-            
-            .section {
-                opacity: 0;
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
+      <h2 id="creative-frontend">3 Creative and frontend engineering</h2>
+      <p>Rabbany's frontend work leans toward motion and craft as much as engineering. Recent projects include a cherry-blossom petal-fall component — a production React and TypeScript canvas animation simulating falling petals through a seven-stage aerodynamic physics cycle, with object pooling for performance and a reduced-motion mode for accessibility. A parallel editorial version paired the same animation with Cormorant Garamond and Inter typography across a twelve-column grid.</p>
+      <p>Other recent work includes a single-file color-picker component supporting HSV, RGB, HEX, and HSL input, with a dark glassmorphic theme, spring-based animations, and native EyeDropper API integration for sampling colors directly from the screen; and an Android system that lets an AI agent drive on-device memory-analysis tooling over a local, secured IPC channel, built as a Kotlin foreground service with task scheduling, automatic crash recovery, and a three-layer security model.</p>
+      <p>Rabbany's personal visual identity — used across their GitHub profile and other projects — favors cherry blossom and sakura motifs, set in a cream, rose, and burgundy palette.</p>
+
+      <h2 id="technology">4 Technology</h2>
+
+      <h3 id="languages">4.1 Languages</h3>
+      <p>By Rabbany's own account, their real language distribution, including private repositories, runs as follows:</p>
+      <div class="langbars">
+        <div class="langbar-row"><span>Python</span><span class="langbar-track" role="img" aria-label="28 percent"><span class="langbar-fill" style="width:28%"></span></span><span class="langbar-pct">28%</span></div>
+        <div class="langbar-row"><span>C++</span><span class="langbar-track" role="img" aria-label="22 percent"><span class="langbar-fill" style="width:22%"></span></span><span class="langbar-pct">22%</span></div>
+        <div class="langbar-row"><span>C</span><span class="langbar-track" role="img" aria-label="14 percent"><span class="langbar-fill" style="width:14%"></span></span><span class="langbar-pct">14%</span></div>
+        <div class="langbar-row"><span>C#</span><span class="langbar-track" role="img" aria-label="13 percent"><span class="langbar-fill" style="width:13%"></span></span><span class="langbar-pct">13%</span></div>
+        <div class="langbar-row"><span>TypeScript</span><span class="langbar-track" role="img" aria-label="11 percent"><span class="langbar-fill" style="width:11%"></span></span><span class="langbar-pct">11%</span></div>
+        <div class="langbar-row"><span>JavaScript</span><span class="langbar-track" role="img" aria-label="7 percent"><span class="langbar-fill" style="width:7%"></span></span><span class="langbar-pct">7%</span></div>
+        <div class="langbar-row"><span>Other</span><span class="langbar-track" role="img" aria-label="5 percent"><span class="langbar-fill" style="width:5%"></span></span><span class="langbar-pct">5%</span></div>
+      </div>
+
+      <h3 id="infrastructure">4.2 Infrastructure and operations</h3>
+      <p>Rabbany's projects run on Supabase for backend and database infrastructure (Trusty, Authera), and Backblaze B2 for object storage. Incident response runs through incident.io, integrated directly into Slack, with Atlassian Statuspage for public status reporting and Paddle for billing.</p>
+
+      <h2 id="external-links">5 External links</h2>
+      <ul class="linklist">
+        <li><a href="https://github.com/rabbanyhmm">GitHub — github.com/rabbanyhmm</a></li>
+        <li><a href="https://authlx.com">AuthLX — authlx.com</a></li>
+        <li><a href="https://github.com/AuthLX">AuthLX on GitHub</a></li>
+        <li><a href="https://x.com/rabbanyhmm">X (Twitter) — @rabbanyhmm</a></li>
+        <li><a href="https://rabbanyhmm.github.io">Personal site — rabbanyhmm.github.io</a></li>
+        <li><a href="https://github.com/is-a-dev/register">is-a-dev/register</a></li>
+      </ul>
+
+      <h2 id="references">6 References</h2>
+      <ol class="refs">
+        <li id="cite_note-1"><a class="back" href="#cite_ref-1">^</a><a href="https://github.com/rabbanyhmm">github.com/rabbanyhmm</a></li>
+        <li id="cite_note-2"><a class="back" href="#cite_ref-2">^</a><a href="https://github.com/rabbanyhmm/WindowCaptureHider">github.com/rabbanyhmm/WindowCaptureHider</a></li>
+        <li id="cite_note-3"><a class="back" href="#cite_ref-3">^</a><a href="https://github.com/rabbanyhmm/DnSpyMCP">github.com/rabbanyhmm/DnSpyMCP</a></li>
+        <li id="cite_note-4"><a class="back" href="#cite_ref-4">^</a><a href="https://github.com/rabbanyhmm/DiscordServerClonner">github.com/rabbanyhmm/DiscordServerClonner</a></li>
+        <li id="cite_note-5"><a class="back" href="#cite_ref-5">^</a><a href="https://github.com/rabbanyhmm/VideoCaptionBurner">github.com/rabbanyhmm/VideoCaptionBurner</a></li>
+        <li id="cite_note-6"><a class="back" href="#cite_ref-6">^</a><a href="https://github.com/rabbanyhmm/SignatureClone">github.com/rabbanyhmm/SignatureClone</a></li>
+        <li id="cite_note-7"><a class="back" href="#cite_ref-7">^</a><a href="https://github.com/AuthLX">github.com/AuthLX</a></li>
+        <li id="cite_note-8"><a class="back" href="#cite_ref-8">^</a><a href="https://github.com/is-a-dev/register">github.com/is-a-dev/register</a></li>
+      </ol>
+
+    </article>
+  </div>
+</main>
+
+<footer class="page-footer">
+  <p>This page was last generated on 12 September 2026, from Rabbany's public GitHub profile.</p>
+</footer>
+
 </body>
 </html>
