@@ -465,9 +465,10 @@
 <script>
 (function() {
   var CACHE_KEY = 'rabbany_github_stats';
+  var TWELVE_HOURS = 12 * 60 * 60 * 1000; // 43,200,000 ms
   var cached = null;
   try {
-    cached = JSON.parse(sessionStorage.getItem(CACHE_KEY));
+    cached = JSON.parse(localStorage.getItem(CACHE_KEY));
   } catch (e) {}
 
   function render(data) {
@@ -482,8 +483,8 @@
     }
   }
 
-  // Use session cache for 15 minutes to avoid rate-limiting
-  if (cached && (Date.now() - cached.timestamp < 900000)) {
+  // Use persistent cache for 12 hours to minimize API requests and avoid rate-limiting
+  if (cached && (Date.now() - cached.timestamp < TWELVE_HOURS)) {
     render(cached.data);
   } else {
     fetch('https://api.github.com/users/rabbanyhmm')
@@ -492,7 +493,7 @@
         if (data) {
           render(data);
           try {
-            sessionStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: data }));
+            localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: data }));
           } catch (e) {}
         }
       })
