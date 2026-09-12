@@ -1,6 +1,6 @@
 # Rabbany
 
-> Creative frontend engineer, systems developer, and tool builder with expertise in high-performance desktop utilities, AI-integrated reverse engineering tooling, and full-stack cloud applications.
+> Systems developer, low-level tooling engineer, and creative frontend practitioner with contributions spanning upstream Linux kernel networking, high-performance Windows desktop utilities, AI-integrated reverse engineering tooling, and full-stack cloud applications.
 
 - **Name:** Rabbany
 - **Location:** Mars 🪐 (joke / humorous profile status)
@@ -13,39 +13,56 @@
 
 ## Core Focus & Flagship Projects
 
-### 1. AuthLX Platform
+### 1. Linux Kernel Mainline Contribution
+- **Description:** Upstream kernel patch in the STMicroelectronics 10/100/1000 Ethernet driver (`drivers/net/ethernet/stmicro/stmmac/stmmac_main.c`).
+- **Fix:** Fixed OF device node reference count leaks in `stmmac_mtl_setup()` on early loop termination using modern scoped clean-up `for_each_child_of_node_scoped()`.
+- **Reviewers:** Reviewed and signed off by Linux networking maintainer Jakub Kicinski (`kuba@kernel.org`), merged into mainline by Linus Torvalds.
+- **Commit:** https://github.com/torvalds/linux/commit/317fe168f4c0fc30e5c375c22d9c8911940aea9b
+
+### 2. AuthLX Platform
 - **Description:** Complete authentication, licensing, and access management platform.
 - **Components:** High-throughput API backend, Next.js administrative dashboard, Discord bot application serving over 10,000 users, and multi-language client SDKs.
 - **Client SDKs:** Published packages on NuGet and PyPI for Python, C++, C#, and Java.
 - **Website:** https://authlx.com
 - **GitHub:** https://github.com/AuthLX
 
-### 2. WindowCaptureHider
+### 3. WindowCaptureHider
 - **Description:** High-performance C++ Windows DLL that masks and excludes top-level application windows from screen capture utilities (OBS Studio, Windows Snipping Tool, streaming software).
 - **Core Technology:** Windows API (`SetWindowDisplayAffinity`), C++, low-overhead memory injection.
 - **Repository:** https://github.com/rabbanyhmm/WindowCaptureHider
 - **License:** AGPL-3.0
 
-### 3. DnSpyMCP
+### 4. DnSpyMCP
 - **Description:** Model Context Protocol (MCP) server engineered for .NET reverse engineering, assembly inspection, and IL2CPP dump analysis.
 - **Features:** Exposes 31 specialized tools allowing AI agents (Claude, ChatGPT, etc.) to perform deep assembly analysis, cross-referencing, and binary patch generation.
 - **Core Technology:** C#, .NET, Model Context Protocol (MCP).
 - **Repository:** https://github.com/rabbanyhmm/DnSpyMCP
 - **License:** MIT
 
-### 4. DiscordServerClonner
-- **Description:** Python utility for duplicating server architectures, emojis, stickers, channel hierarchies, and validating auth tokens.
-- **Core Technology:** Python, Discord API, asynchronous I/O.
-- **Repository:** https://github.com/rabbanyhmm/DiscordServerClonner
-- **License:** MIT
+### 5. ClipTrayLT
+- **Description:** Lightweight, responsive clipboard history manager built for Linux desktop environments with instant cursor-position popup activation and searchable history.
+- **Core Technology:** C++, Linux, X11/Desktop Integration.
+- **Repository:** https://github.com/rabbanyhmm/ClipTrayLT
+- **License:** Open-source
 
-### 5. VideoCaptionBurner
+### 6. Extreme-Injector-Open-Source
+- **Description:** Open-source Windows dynamic link library (DLL) injector engineered in C# utilizing native Win32 kernel and process memory management APIs (`VirtualAllocEx`, `WriteProcessMemory`, `CreateRemoteThread`).
+- **Core Technology:** C#, .NET, Win32 Memory Management.
+- **Repository:** https://github.com/rabbanyhmm/Extreme-Injector-Open-Source
+- **License:** Open-source
+
+### 7. Discord Automation (DiscordServerClonner & ExistNuker)
+- **DiscordServerClonner:** Python utility for duplicating server architectures, emojis, stickers, channel hierarchies, and validating auth tokens without elevated administrative rights on source servers (https://github.com/rabbanyhmm/DiscordServerClonner).
+- **ExistNuker:** Multi-threaded stress-testing and channel administration tool designed to benchmark Discord API throughput boundaries and rate-limit handling (https://github.com/rabbanyhmm/ExistNuker).
+- **Core Technology:** Python, Asynchronous I/O, REST APIs.
+
+### 8. VideoCaptionBurner
 - **Description:** Automated FFmpeg-based video subtitle engine providing millisecond timing control, font typography, and burnt-in styling.
 - **Core Technology:** Python, FFmpeg, subtitle layout engines.
 - **Repository:** https://github.com/rabbanyhmm/VideoCaptionBurner
 - **License:** MIT
 
-### 6. Creative Frontend & Motion Engineering
+### 9. Creative Frontend & Motion Engineering
 - **Description:** Advanced browser graphics, physics-based canvas animations, and design-forward user interfaces.
 - **Key Implementations:** Aerodynamic petal-fall canvas simulation with object pooling and reduced-motion fallbacks; accessible dark glassmorphic color-picker with native EyeDropper API integration.
 - **Core Technology:** React, TypeScript, HTML5 Canvas, modern CSS, Web APIs.
@@ -55,8 +72,8 @@
 ## Technical Stack
 
 - **Languages:** Python (28%), C++ (22%), C (14%), C# (13%), TypeScript (11%), JavaScript (7%)
+- **Systems & Kernel:** Linux Kernel Driver Architecture, Windows Internals, Win32 API, DLL Injection, Reverse Engineering, IL2CPP, PE Format
 - **Frontend & Design:** React, Next.js, TypeScript, Tailwind CSS, Canvas API, Motion Physics
-- **Systems & Security:** Windows Internals, Win32 API, DLL Injection, Reverse Engineering, IL2CPP, PE Format
 - **Cloud & Infrastructure:** Supabase, Backblaze B2, Docker, Linux, Git, Cloudflare DNS
 
 ---
@@ -68,3 +85,4 @@
 - AuthLX: https://authlx.com
 - AuthLX GitHub: https://github.com/AuthLX
 - Subdomain Registry Contributions: https://github.com/is-a-dev/register
+- Linux Kernel Commit: https://github.com/torvalds/linux/commit/317fe168f4c0fc30e5c375c22d9c8911940aea9b

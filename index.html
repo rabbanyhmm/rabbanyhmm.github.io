@@ -55,12 +55,15 @@
         "https://r.is-a.stupid.cat/"
       ],
       "knowsAbout": [
+        "Linux Kernel Development",
         "C++",
+        "C",
         "Python",
         "TypeScript",
         "C#",
         "Reverse Engineering",
-        "Windows API",
+        "Windows API & Internals",
+        "DLL Injection",
         "Model Context Protocol (MCP)",
         "Authentication Systems",
         "Creative Frontend Engineering",
@@ -319,7 +322,7 @@
     </div>
 
     <p class="lede">
-      <strong>Rabbany</strong> — known across developer communities as <strong>rabbanyhmm</strong> — is a creative frontend engineer and systems developer whose active work bridges high-performance systems utilities, AI reverse engineering tooling, and production licensing software.<sup id="cite_ref-1"><a href="#cite_note-1">[1]</a></sup> Rather than spreading across unmaintained experiments, their focused output is anchored by production-grade software: the <strong>AuthLX</strong> authentication and licensing ecosystem, the <strong>WindowCaptureHider</strong> screen privacy library, the <strong>DnSpyMCP</strong> assembly analysis server, and fluid canvas-driven motion design.
+      <strong>Rabbany</strong> — known across developer communities as <strong>rabbanyhmm</strong> — is a systems developer and creative frontend engineer whose active work spans upstream Linux kernel contributions, low-level Windows memory utilities, AI reverse engineering tooling, and production licensing software.<sup id="cite_ref-1"><a href="#cite_note-1">[1]</a></sup> His verified portfolio includes merged commits in the mainline <strong>Linux kernel</strong> (<code>torvalds/linux</code>), the <strong>AuthLX</strong> authentication and licensing ecosystem, <strong>WindowCaptureHider</strong>, <strong>DnSpyMCP</strong>, and open-source desktop utilities like <strong>ClipTrayLT</strong> and <strong>Extreme-Injector-Open-Source</strong>.
     </p>
 
     <nav class="toc" aria-label="Table of Contents">
@@ -328,11 +331,14 @@
         <li><a href="#engineering-focus">1 Engineering focus &amp; background</a></li>
         <li><a href="#flagship-projects">2 Core &amp; focused projects</a>
           <ol>
-            <li><a href="#authlx">2.1 AuthLX platform</a></li>
-            <li><a href="#window-capture-hider">2.2 WindowCaptureHider</a></li>
-            <li><a href="#dnspy-mcp">2.3 DnSpyMCP (.NET Reverse Engineering)</a></li>
-            <li><a href="#discord-automation">2.4 DiscordServerClonner</a></li>
-            <li><a href="#media-processing">2.5 VideoCaptionBurner</a></li>
+            <li><a href="#linux-kernel">2.1 Linux Kernel Mainline Contribution</a></li>
+            <li><a href="#authlx">2.2 AuthLX platform</a></li>
+            <li><a href="#window-capture-hider">2.3 WindowCaptureHider</a></li>
+            <li><a href="#dnspy-mcp">2.4 DnSpyMCP (.NET Reverse Engineering)</a></li>
+            <li><a href="#cliptray-lt">2.5 ClipTrayLT (Linux Clipboard Manager)</a></li>
+            <li><a href="#extreme-injector">2.6 Extreme-Injector-Open-Source</a></li>
+            <li><a href="#discord-automation">2.7 Discord Automation (DiscordServerClonner &amp; ExistNuker)</a></li>
+            <li><a href="#media-processing">2.8 VideoCaptionBurner</a></li>
           </ol>
         </li>
         <li><a href="#creative-frontend">3 Creative &amp; motion engineering</a></li>
@@ -357,10 +363,21 @@
         Rabbany's active, maintained portfolio focuses on the following key projects:
       </p>
 
-      <div class="project-card" id="authlx">
-        <h4>2.1 AuthLX Platform</h4>
+      <div class="project-card" id="linux-kernel">
+        <h4>2.1 Linux Kernel Mainline Contribution</h4>
         <p>
-          AuthLX is an authentication, licensing, and user management platform engineered by Rabbany.<sup id="cite_ref-2"><a href="#cite_note-2">[2]</a></sup> It provides end-to-end access verification with client SDKs published across official registries (NuGet and PyPI) in Python, C++, C#, and Java.
+          Rabbany contributed upstream to the Linux kernel codebase in the STMicroelectronics 10/100/1000 Ethernet driver subsystem (<code>drivers/net/ethernet/stmicro/stmmac/stmmac_main.c</code>).<sup id="cite_ref-2"><a href="#cite_note-2">[2]</a></sup>
+        </p>
+        <p>
+          The patch eliminated device node reference count leaks in <code>stmmac_mtl_setup()</code> by replacing manual OF node iterations with the modern scoped clean-up iterator <code>for_each_child_of_node_scoped()</code>, preventing refcount leaks when breaking early out of loops. The commit was reviewed and signed off by Linux networking maintainer Jakub Kicinski and merged into mainline Linux by Linus Torvalds.
+        </p>
+        <span class="stat">Commit: <a href="https://github.com/torvalds/linux/commit/317fe168f4c0fc30e5c375c22d9c8911940aea9b" target="_blank" rel="noopener"><code>317fe168f4</code></a> &bull; Subsystem: Networking (stmmac) &bull; Merged Mainline</span>
+      </div>
+
+      <div class="project-card" id="authlx">
+        <h4>2.2 AuthLX Platform</h4>
+        <p>
+          AuthLX is an authentication, licensing, and user management platform engineered by Rabbany.<sup id="cite_ref-3"><a href="#cite_note-3">[3]</a></sup> It provides end-to-end access verification with client SDKs published across official registries (NuGet and PyPI) in Python, C++, C#, and Java.
         </p>
         <p>
           The ecosystem incorporates a dedicated Discord bot application serving over 10,000 users, allowing server administrators to generate, revoke, and bind software licenses directly through chat interfaces.
@@ -369,41 +386,67 @@
       </div>
 
       <div class="project-card" id="window-capture-hider">
-        <h4>2.2 WindowCaptureHider</h4>
+        <h4>2.3 WindowCaptureHider</h4>
         <p>
-          A high-performance Windows dynamic link library (DLL) that shields top-level application windows from screen capture and recording software, such as OBS Studio and the Windows Snipping Tool.<sup id="cite_ref-3"><a href="#cite_note-3">[3]</a></sup>
+          A high-performance Windows dynamic link library (DLL) that shields top-level application windows from screen capture and recording software, such as OBS Studio and the Windows Snipping Tool.<sup id="cite_ref-4"><a href="#cite_note-4">[4]</a></sup>
         </p>
         <p>
           The utility leverages the native <code>SetWindowDisplayAffinity</code> API, offering developers and security-conscious users seamless privacy against unauthorized screen scraping and streaming leaks.
         </p>
-        <span class="stat">Stack: C++, Win32 API &bull; 24 stars, 5 forks &bull; AGPL-3.0</span>
+        <span class="stat">Stack: C++, Win32 API &bull; 24 stars, 5 forks &bull; AGPL-3.0 &bull; <a href="https://github.com/rabbanyhmm/WindowCaptureHider" target="_blank" rel="noopener">rabbanyhmm/WindowCaptureHider</a></span>
       </div>
 
       <div class="project-card" id="dnspy-mcp">
-        <h4>2.3 DnSpyMCP (.NET Reverse Engineering)</h4>
+        <h4>2.4 DnSpyMCP (.NET Reverse Engineering)</h4>
         <p>
-          An extensible Model Context Protocol (MCP) server designed to connect modern LLM coding agents directly to .NET reverse engineering and disassembly pipelines.<sup id="cite_ref-4"><a href="#cite_note-4">[4]</a></sup>
+          An extensible Model Context Protocol (MCP) server designed to connect modern LLM coding agents directly to .NET reverse engineering and disassembly pipelines.<sup id="cite_ref-5"><a href="#cite_note-5">[5]</a></sup>
         </p>
         <p>
           DnSpyMCP exposes 31 structured tools enabling automated IL2CPP dump analysis, assembly cross-referencing, metadata extraction, and binary patch synthesis.
         </p>
-        <span class="stat">Stack: C#, .NET, Model Context Protocol (MCP) &bull; 8 stars, 3 forks &bull; MIT</span>
+        <span class="stat">Stack: C#, .NET, Model Context Protocol (MCP) &bull; 8 stars, 3 forks &bull; MIT &bull; <a href="https://github.com/rabbanyhmm/DnSpyMCP" target="_blank" rel="noopener">rabbanyhmm/DnSpyMCP</a></span>
+      </div>
+
+      <div class="project-card" id="cliptray-lt">
+        <h4>2.5 ClipTrayLT (Linux Clipboard Manager)</h4>
+        <p>
+          A lightweight, responsive clipboard manager built for Linux desktop environments.<sup id="cite_ref-6"><a href="#cite_note-6">[6]</a></sup> It maintains a fast, searchable clipboard history indexed with minimal memory footprint.
+        </p>
+        <p>
+          ClipTrayLT features instant pop-up activation positioned at the user's active cursor coordinates, allowing rapid text retrieval, item pinning, and seamless insertion into target applications without interrupting keyboard workflow.
+        </p>
+        <span class="stat">Stack: C++, Linux, X11/Desktop Integration &bull; <a href="https://github.com/rabbanyhmm/ClipTrayLT" target="_blank" rel="noopener">rabbanyhmm/ClipTrayLT</a></span>
+      </div>
+
+      <div class="project-card" id="extreme-injector">
+        <h4>2.6 Extreme-Injector-Open-Source</h4>
+        <p>
+          An open-source Windows dynamic link library (DLL) injector engineered in C# utilizing native Win32 kernel and process APIs.<sup id="cite_ref-7"><a href="#cite_note-7">[7]</a></sup>
+        </p>
+        <p>
+          The utility implements direct process memory allocation (<code>VirtualAllocEx</code>), memory writing (<code>WriteProcessMemory</code>), and execution orchestration (<code>CreateRemoteThread</code>), featuring process search filtering, auto-injection triggers, and detailed diagnostic logs.
+        </p>
+        <span class="stat">Stack: C#, .NET, Win32 Memory Management &bull; <a href="https://github.com/rabbanyhmm/Extreme-Injector-Open-Source" target="_blank" rel="noopener">rabbanyhmm/Extreme-Injector-Open-Source</a></span>
       </div>
 
       <div class="project-card" id="discord-automation">
-        <h4>2.4 DiscordServerClonner</h4>
+        <h4>2.7 Discord Automation (DiscordServerClonner &amp; ExistNuker)</h4>
         <p>
-          A Python utility engineered for server structure preservation, emoji and sticker archiving, channel taxonomy backup, and token validation without requiring elevated administrative privileges on source servers.<sup id="cite_ref-5"><a href="#cite_note-5">[5]</a></sup>
+          High-performance Python utilities built for Discord API research, automation, and infrastructure management:
         </p>
-        <span class="stat">Stack: Python, Asynchronous I/O, REST APIs &bull; 1 star, 7 forks &bull; MIT</span>
+        <ul>
+          <li><strong>DiscordServerClonner:</strong> An automated preservation engine for replicating server hierarchies, channels, categories, permissions, emojis, and sticker packs across Discord guilds without administrative rights on the source.<sup id="cite_ref-8"><a href="#cite_note-8">[8]</a></sup></li>
+          <li><strong>ExistNuker:</strong> A concurrent multi-threaded stress-testing and channel administration tool designed to benchmark Discord API throughput boundaries and asynchronous request handling.<sup id="cite_ref-9"><a href="#cite_note-9">[9]</a></sup></li>
+        </ul>
+        <span class="stat">Stack: Python, Asynchronous I/O, REST APIs &bull; <a href="https://github.com/rabbanyhmm/DiscordServerClonner" target="_blank" rel="noopener">DiscordServerClonner</a> &bull; <a href="https://github.com/rabbanyhmm/ExistNuker" target="_blank" rel="noopener">ExistNuker</a></span>
       </div>
 
       <div class="project-card" id="media-processing">
-        <h4>2.5 VideoCaptionBurner</h4>
+        <h4>2.8 VideoCaptionBurner</h4>
         <p>
-          An automated media utility wrapping FFmpeg to render, synchronize, and hard-code styled captions into video files with sub-frame accuracy and precise typographical control.<sup id="cite_ref-6"><a href="#cite_note-6">[6]</a></sup>
+          An automated media utility wrapping FFmpeg to render, synchronize, and hard-code styled captions into video files with sub-frame accuracy and precise typographical control.<sup id="cite_ref-10"><a href="#cite_note-10">[10]</a></sup>
         </p>
-        <span class="stat">Stack: Python, FFmpeg &bull; MIT</span>
+        <span class="stat">Stack: Python, FFmpeg &bull; MIT &bull; <a href="https://github.com/rabbanyhmm/VideoCaptionBurner" target="_blank" rel="noopener">rabbanyhmm/VideoCaptionBurner</a></span>
       </div>
 
       <h2 id="creative-frontend">3 Creative &amp; motion engineering</h2>
@@ -443,11 +486,15 @@
       <h2 id="references">6 References</h2>
       <ol class="refs">
         <li id="cite_note-1"><a class="back" href="#cite_ref-1" aria-label="Jump up to citation 1">^</a> Rabbany GitHub Account Profile: <a href="https://github.com/rabbanyhmm" target="_blank" rel="noopener">github.com/rabbanyhmm</a></li>
-        <li id="cite_note-2"><a class="back" href="#cite_ref-2" aria-label="Jump up to citation 2">^</a> AuthLX Authentication &amp; Licensing Platform: <a href="https://authlx.com" target="_blank" rel="noopener">authlx.com</a></li>
-        <li id="cite_note-3"><a class="back" href="#cite_ref-3" aria-label="Jump up to citation 3">^</a> WindowCaptureHider Source Repository: <a href="https://github.com/rabbanyhmm/WindowCaptureHider" target="_blank" rel="noopener">github.com/rabbanyhmm/WindowCaptureHider</a></li>
-        <li id="cite_note-4"><a class="back" href="#cite_ref-4" aria-label="Jump up to citation 4">^</a> DnSpyMCP Model Context Protocol Server: <a href="https://github.com/rabbanyhmm/DnSpyMCP" target="_blank" rel="noopener">github.com/rabbanyhmm/DnSpyMCP</a></li>
-        <li id="cite_note-5"><a class="back" href="#cite_ref-5" aria-label="Jump up to citation 5">^</a> DiscordServerClonner Repository: <a href="https://github.com/rabbanyhmm/DiscordServerClonner" target="_blank" rel="noopener">github.com/rabbanyhmm/DiscordServerClonner</a></li>
-        <li id="cite_note-6"><a class="back" href="#cite_ref-6" aria-label="Jump up to citation 6">^</a> VideoCaptionBurner Repository: <a href="https://github.com/rabbanyhmm/VideoCaptionBurner" target="_blank" rel="noopener">github.com/rabbanyhmm/VideoCaptionBurner</a></li>
+        <li id="cite_note-2"><a class="back" href="#cite_ref-2" aria-label="Jump up to citation 2">^</a> Linux Kernel Mainline Commit <code>317fe168f4</code>: <a href="https://github.com/torvalds/linux/commit/317fe168f4c0fc30e5c375c22d9c8911940aea9b" target="_blank" rel="noopener">torvalds/linux: net: stmmac: fix device node reference leaks in stmmac_mtl_setup()</a></li>
+        <li id="cite_note-3"><a class="back" href="#cite_ref-3" aria-label="Jump up to citation 3">^</a> AuthLX Authentication &amp; Licensing Platform: <a href="https://authlx.com" target="_blank" rel="noopener">authlx.com</a></li>
+        <li id="cite_note-4"><a class="back" href="#cite_ref-4" aria-label="Jump up to citation 4">^</a> WindowCaptureHider Source Repository: <a href="https://github.com/rabbanyhmm/WindowCaptureHider" target="_blank" rel="noopener">github.com/rabbanyhmm/WindowCaptureHider</a></li>
+        <li id="cite_note-5"><a class="back" href="#cite_ref-5" aria-label="Jump up to citation 5">^</a> DnSpyMCP Model Context Protocol Server: <a href="https://github.com/rabbanyhmm/DnSpyMCP" target="_blank" rel="noopener">github.com/rabbanyhmm/DnSpyMCP</a></li>
+        <li id="cite_note-6"><a class="back" href="#cite_ref-6" aria-label="Jump up to citation 6">^</a> ClipTrayLT Linux Clipboard Manager: <a href="https://github.com/rabbanyhmm/ClipTrayLT" target="_blank" rel="noopener">github.com/rabbanyhmm/ClipTrayLT</a></li>
+        <li id="cite_note-7"><a class="back" href="#cite_ref-7" aria-label="Jump up to citation 7">^</a> Extreme-Injector-Open-Source Repository: <a href="https://github.com/rabbanyhmm/Extreme-Injector-Open-Source" target="_blank" rel="noopener">github.com/rabbanyhmm/Extreme-Injector-Open-Source</a></li>
+        <li id="cite_note-8"><a class="back" href="#cite_ref-8" aria-label="Jump up to citation 8">^</a> DiscordServerClonner Repository: <a href="https://github.com/rabbanyhmm/DiscordServerClonner" target="_blank" rel="noopener">github.com/rabbanyhmm/DiscordServerClonner</a></li>
+        <li id="cite_note-9"><a class="back" href="#cite_ref-9" aria-label="Jump up to citation 9">^</a> ExistNuker Repository: <a href="https://github.com/rabbanyhmm/ExistNuker" target="_blank" rel="noopener">github.com/rabbanyhmm/ExistNuker</a></li>
+        <li id="cite_note-10"><a class="back" href="#cite_ref-10" aria-label="Jump up to citation 10">^</a> VideoCaptionBurner Repository: <a href="https://github.com/rabbanyhmm/VideoCaptionBurner" target="_blank" rel="noopener">github.com/rabbanyhmm/VideoCaptionBurner</a></li>
       </ol>
 
     </article>
