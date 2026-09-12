@@ -302,6 +302,9 @@
       <dl>
         <dt>Role</dt><dd>Frontend Engineer &amp; Systems Developer</dd>
         <dt>Handles</dt><dd>rabbanyhmm, rbnyx</dd>
+        <dt>Location</dt><dd>Mars 🪐 <span style="font-size:0.75rem; color:var(--ink-muted);">(joke)</span></dd>
+        <dt>Public Repos</dt><dd id="github-repos">19 public</dd>
+        <dt>Followers</dt><dd id="github-followers">29</dd>
         <dt>Flagship Work</dt><dd>AuthLX, WindowCaptureHider, DnSpyMCP</dd>
         <dt>Organization</dt><dd><a href="https://authlx.com" target="_blank" rel="noopener">AuthLX</a></dd>
         <dt>Main Domain</dt><dd><a href="https://rabbanyhmm.is-a.dev/">rabbanyhmm.is-a.dev</a></dd>
@@ -458,6 +461,47 @@
     <span>Accessible for search engines &amp; LLMs: <a href="/sitemap.xml">sitemap.xml</a> &bull; <a href="/llms.txt">llms.txt</a></span>
   </div>
 </footer>
+
+<script>
+(function() {
+  var CACHE_KEY = 'rabbany_github_stats';
+  var cached = null;
+  try {
+    cached = JSON.parse(sessionStorage.getItem(CACHE_KEY));
+  } catch (e) {}
+
+  function render(data) {
+    if (!data) return;
+    if (typeof data.public_repos === 'number') {
+      var repoEl = document.getElementById('github-repos');
+      if (repoEl) repoEl.textContent = data.public_repos + ' public';
+    }
+    if (typeof data.followers === 'number') {
+      var followEl = document.getElementById('github-followers');
+      if (followEl) followEl.textContent = data.followers;
+    }
+  }
+
+  // Use session cache for 15 minutes to avoid rate-limiting
+  if (cached && (Date.now() - cached.timestamp < 900000)) {
+    render(cached.data);
+  } else {
+    fetch('https://api.github.com/users/rabbanyhmm')
+      .then(function(res) { return res.ok ? res.json() : null; })
+      .then(function(data) {
+        if (data) {
+          render(data);
+          try {
+            sessionStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: data }));
+          } catch (e) {}
+        }
+      })
+      .catch(function() {
+        // Fallback gracefully to default pre-rendered HTML values
+      });
+  }
+})();
+</script>
 
 </body>
 </html>

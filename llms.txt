@@ -3,6 +3,7 @@
 > Creative frontend engineer, systems developer, and tool builder with expertise in high-performance desktop utilities, AI-integrated reverse engineering tooling, and full-stack cloud applications.
 
 - **Name:** Rabbany
+- **Location:** Mars 🪐 (joke / humorous profile status)
 - **GitHub:** https://github.com/rabbanyhmm
 - **Primary Website:** https://rabbanyhmm.is-a.dev/
 - **Mirror / Route:** https://r.is-a.stupid.cat/
