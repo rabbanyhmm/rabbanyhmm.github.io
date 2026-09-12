@@ -1,0 +1,69 @@
+# Rabbany
+
+> Creative frontend engineer, systems developer, and tool builder with expertise in high-performance desktop utilities, AI-integrated reverse engineering tooling, and full-stack cloud applications.
+
+- **Name:** Rabbany
+- **GitHub:** https://github.com/rabbanyhmm
+- **Primary Website:** https://rabbanyhmm.is-a.dev/
+- **Mirror / Route:** https://r.is-a.stupid.cat/
+- **Organization / Platform:** AuthLX (https://authlx.com)
+
+---
+
+## Core Focus & Flagship Projects
+
+### 1. AuthLX Platform
+- **Description:** Complete authentication, licensing, and access management platform.
+- **Components:** High-throughput API backend, Next.js administrative dashboard, Discord bot application serving over 10,000 users, and multi-language client SDKs.
+- **Client SDKs:** Published packages on NuGet and PyPI for Python, C++, C#, and Java.
+- **Website:** https://authlx.com
+- **GitHub:** https://github.com/AuthLX
+
+### 2. WindowCaptureHider
+- **Description:** High-performance C++ Windows DLL that masks and excludes top-level application windows from screen capture utilities (OBS Studio, Windows Snipping Tool, streaming software).
+- **Core Technology:** Windows API (`SetWindowDisplayAffinity`), C++, low-overhead memory injection.
+- **Repository:** https://github.com/rabbanyhmm/WindowCaptureHider
+- **License:** AGPL-3.0
+
+### 3. DnSpyMCP
+- **Description:** Model Context Protocol (MCP) server engineered for .NET reverse engineering, assembly inspection, and IL2CPP dump analysis.
+- **Features:** Exposes 31 specialized tools allowing AI agents (Claude, ChatGPT, etc.) to perform deep assembly analysis, cross-referencing, and binary patch generation.
+- **Core Technology:** C#, .NET, Model Context Protocol (MCP).
+- **Repository:** https://github.com/rabbanyhmm/DnSpyMCP
+- **License:** MIT
+
+### 4. DiscordServerClonner
+- **Description:** Python utility for duplicating server architectures, emojis, stickers, channel hierarchies, and validating auth tokens.
+- **Core Technology:** Python, Discord API, asynchronous I/O.
+- **Repository:** https://github.com/rabbanyhmm/DiscordServerClonner
+- **License:** MIT
+
+### 5. VideoCaptionBurner
+- **Description:** Automated FFmpeg-based video subtitle engine providing millisecond timing control, font typography, and burnt-in styling.
+- **Core Technology:** Python, FFmpeg, subtitle layout engines.
+- **Repository:** https://github.com/rabbanyhmm/VideoCaptionBurner
+- **License:** MIT
+
+### 6. Creative Frontend & Motion Engineering
+- **Description:** Advanced browser graphics, physics-based canvas animations, and design-forward user interfaces.
+- **Key Implementations:** Aerodynamic petal-fall canvas simulation with object pooling and reduced-motion fallbacks; accessible dark glassmorphic color-picker with native EyeDropper API integration.
+- **Core Technology:** React, TypeScript, HTML5 Canvas, modern CSS, Web APIs.
+
+---
+
+## Technical Stack
+
+- **Languages:** Python (28%), C++ (22%), C (14%), C# (13%), TypeScript (11%), JavaScript (7%)
+- **Frontend & Design:** React, Next.js, TypeScript, Tailwind CSS, Canvas API, Motion Physics
+- **Systems & Security:** Windows Internals, Win32 API, DLL Injection, Reverse Engineering, IL2CPP, PE Format
+- **Cloud & Infrastructure:** Supabase, Backblaze B2, Docker, Linux, Git, Cloudflare DNS
+
+---
+
+## Verified Profiles & Links
+
+- GitHub: https://github.com/rabbanyhmm
+- X (Twitter): https://x.com/rabbanyhmm
+- AuthLX: https://authlx.com
+- AuthLX GitHub: https://github.com/AuthLX
+- Subdomain Registry Contributions: https://github.com/is-a-dev/register

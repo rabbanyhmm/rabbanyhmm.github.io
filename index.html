@@ -1,10 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Rabbany</title>
-<meta name="description" content="A reference profile of Rabbany — creative frontend engineer, technical animator, and tool builder." />
+<title>Rabbany | Creative Frontend Engineer, Systems Developer &amp; Tool Builder</title>
+
+<!-- Standard SEO Meta Tags -->
+<meta name="description" content="Reference profile and portfolio of Rabbany (rabbanyhmm) — creative frontend engineer, systems developer, and builder of AuthLX, WindowCaptureHider, and DnSpyMCP." />
+<meta name="keywords" content="Rabbany, rabbanyhmm, AuthLX, WindowCaptureHider, DnSpyMCP, DiscordServerClonner, creative frontend engineer, systems developer, reverse engineering, C++, Python, TypeScript, .NET, MCP" />
+<meta name="author" content="Rabbany" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#221E18" />
+<link rel="canonical" href="https://rabbanyhmm.is-a.dev/" />
+
+<!-- AI & LLM Machine-Readable Endpoint -->
+<link rel="alternate" type="text/markdown" href="https://rabbanyhmm.is-a.dev/llms.txt" title="AI &amp; LLM Context Summary" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="profile" />
+<meta property="og:url" content="https://rabbanyhmm.is-a.dev/" />
+<meta property="og:site_name" content="Rabbany" />
+<meta property="og:title" content="Rabbany | Creative Frontend Engineer &amp; Systems Developer" />
+<meta property="og:description" content="Reference profile of Rabbany (rabbanyhmm) — builder of AuthLX, WindowCaptureHider, DnSpyMCP, and high-performance frontend interfaces." />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/104850985?v=4" />
+<meta property="og:locale" content="en_US" />
+<meta property="profile:username" content="rabbanyhmm" />
+
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@rabbanyhmm" />
+<meta name="twitter:creator" content="@rabbanyhmm" />
+<meta name="twitter:title" content="Rabbany | Creative Frontend Engineer &amp; Systems Developer" />
+<meta name="twitter:description" content="Reference profile of Rabbany (rabbanyhmm) — builder of AuthLX, WindowCaptureHider, DnSpyMCP, and high-performance frontend interfaces." />
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/104850985?v=4" />
+
+<!-- Structured Data (JSON-LD) for Search Engines & AI Assistants -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://rabbanyhmm.is-a.dev/#person",
+      "name": "Rabbany",
+      "alternateName": ["rabbanyhmm", "rbnyx"],
+      "url": "https://rabbanyhmm.is-a.dev/",
+      "image": "https://avatars.githubusercontent.com/u/104850985?v=4",
+      "jobTitle": "Creative Frontend Engineer & Systems Developer",
+      "sameAs": [
+        "https://github.com/rabbanyhmm",
+        "https://x.com/rabbanyhmm",
+        "https://authlx.com",
+        "https://r.is-a.stupid.cat/"
+      ],
+      "knowsAbout": [
+        "C++",
+        "Python",
+        "TypeScript",
+        "C#",
+        "Reverse Engineering",
+        "Windows API",
+        "Model Context Protocol (MCP)",
+        "Authentication Systems",
+        "Creative Frontend Engineering",
+        "Canvas Physics Animation"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://rabbanyhmm.is-a.dev/#website",
+      "url": "https://rabbanyhmm.is-a.dev/",
+      "name": "Rabbany",
+      "description": "Portfolio and reference profile of Rabbany",
+      "publisher": {
+        "@id": "https://rabbanyhmm.is-a.dev/#person"
+      }
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -18,6 +93,7 @@
     --rule:#35302A;
     --link:#0645AD;
     --accent:#7A2E2E;
+    --badge-bg:#E0D6BC;
     --serif:'PT Serif', Georgia, 'Times New Roman', serif;
     --sans:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
   }
@@ -72,7 +148,7 @@
 
   .infobox{
     float:right;
-    width:290px;
+    width:310px;
     margin:0 0 1.75rem 2rem;
     background:var(--panel);
     border:1px solid var(--rule);
@@ -98,7 +174,20 @@
   .infobox dt{ font-weight:600; color:var(--ink-muted); }
   .infobox dd{ margin:0; }
 
-  .lede, .toc, .content p, .content li{ max-width:660px; }
+  .ai-notice{
+    display:inline-block;
+    background:var(--badge-bg);
+    border:1px solid var(--rule);
+    padding:.25rem .55rem;
+    border-radius:3px;
+    font-family:var(--sans);
+    font-size:.78rem;
+    margin-bottom:1.25rem;
+    color:var(--ink-muted);
+  }
+  .ai-notice a{ font-weight:600; }
+
+  .lede, .toc, .content p, .content li{ max-width:680px; }
 
   .lede{ margin:0 0 1.5rem; font-size:1.09rem; }
   .lede sup a{ text-decoration:none; }
@@ -136,13 +225,27 @@
   .content p{ margin:0 0 1.05rem; }
   .content ul, .content ol{ padding-left:1.35rem; margin:0 0 1.05rem; }
   .content li{ margin:0 0 .75rem; }
-  .stat{ color:var(--ink-muted); font-family:var(--sans); font-size:.85rem; }
+  .stat{ color:var(--ink-muted); font-family:var(--sans); font-size:.85rem; font-weight:500; }
 
-  .langbars{ max-width:520px; margin:0 0 1.5rem; font-family:var(--sans); font-size:.85rem; }
+  .project-card{
+    background:rgba(234, 226, 206, 0.45);
+    border-left:3px solid var(--rule);
+    padding:.75rem 1rem;
+    margin:0 0 1.25rem;
+    max-width:680px;
+  }
+  .project-card h4{
+    margin:0 0 .35rem;
+    font-family:var(--sans);
+    font-size:1.05rem;
+  }
+  .project-card p{ margin:0 0 .4rem; font-size:.98rem; }
+
+  .langbars{ max-width:540px; margin:0 0 1.5rem; font-family:var(--sans); font-size:.85rem; }
   .langbar-row{ display:grid; grid-template-columns:100px 1fr 42px; align-items:center; gap:.65rem; margin:.4rem 0; }
   .langbar-track{ background:var(--panel); border:1px solid var(--rule); height:14px; }
   .langbar-fill{ background:var(--ink); height:100%; display:block; }
-  .langbar-pct{ text-align:right; color:var(--ink-muted); }
+  .langbar-pct{ text-align:right; color:var(--ink-muted); font-weight:600; }
 
   .content .linklist{ list-style:none; padding:0; }
   .content .linklist li{ margin:0 0 .5rem; }
@@ -157,18 +260,24 @@
     padding:1.5rem 1.5rem 3rem;
     border-top:1px solid var(--rule);
     font-family:var(--sans);
-    font-size:.8rem;
+    font-size:.82rem;
     color:var(--ink-muted);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:1rem;
   }
+  footer.page-footer a{ color:var(--ink-muted); }
 
   @media (max-width:800px){
     .infobox{ float:none; width:100%; margin:0 0 1.75rem; }
     .masthead h1{ font-size:2.5rem; }
     .langbar-row{ grid-template-columns:84px 1fr 38px; }
+    footer.page-footer{ flex-direction:column; }
   }
 
   @media print{
-    body{ background:#fff; }
+    body{ background:#fff; color:#000; }
     .infobox, .toc{ background:#fff; }
   }
 </style>
@@ -177,9 +286,9 @@
 
 <header class="masthead">
   <h1>Rabbany</h1>
-  <p class="role">Creative frontend engineer, technical animator, and tool builder</p>
+  <p class="role">Creative frontend engineer, systems developer, and tool builder</p>
 </header>
-<div class="rule-group">
+<div class="rule-group" aria-hidden="true">
   <div class="rule-thick"></div>
   <div class="rule-thin"></div>
 </div>
@@ -187,123 +296,154 @@
 <main class="page">
   <div class="article-wrap">
 
-    <aside class="infobox" aria-label="Summary">
-      <img src="https://avatars.githubusercontent.com/u/104850985?v=4" alt="Rabbany's GitHub avatar" width="290" height="290" loading="lazy">
-      <p class="infobox-caption">&ldquo;My bed is a magical place where I suddenly remember everything I forgot to do.&rdquo; — Rabbany's GitHub status</p>
+    <aside class="infobox" aria-label="Reference Summary">
+      <img src="https://avatars.githubusercontent.com/u/104850985?v=4" alt="Rabbany portrait" width="310" height="310" loading="lazy" />
+      <p class="infobox-caption">&ldquo;My bed is a magical place where I suddenly remember everything I forgot to do.&rdquo; — Rabbany</p>
       <dl>
-        <dt>Occupation</dt><dd>Creative frontend engineer, technical animator</dd>
-        <dt>Also known as</dt><dd>rbnyx, myexistences (earlier handle)</dd>
-        <dt>Location</dt><dd>Mars</dd>
-        <dt>Known for</dt><dd>WindowCaptureHider, DnSpyMCP, AuthLX</dd>
-        <dt>Organization</dt><dd>AuthLX</dd>
-        <dt>Website</dt><dd><a href="https://authlx.com">authlx.com</a></dd>
-        <dt>GitHub</dt><dd><a href="https://github.com/rabbanyhmm">rabbanyhmm</a></dd>
-        <dt>Repositories</dt><dd>17 public</dd>
-        <dt>Followers</dt><dd>29</dd>
+        <dt>Role</dt><dd>Frontend Engineer &amp; Systems Developer</dd>
+        <dt>Handles</dt><dd>rabbanyhmm, rbnyx</dd>
+        <dt>Flagship Work</dt><dd>AuthLX, WindowCaptureHider, DnSpyMCP</dd>
+        <dt>Organization</dt><dd><a href="https://authlx.com" target="_blank" rel="noopener">AuthLX</a></dd>
+        <dt>Main Domain</dt><dd><a href="https://rabbanyhmm.is-a.dev/">rabbanyhmm.is-a.dev</a></dd>
+        <dt>Routed Domain</dt><dd><a href="https://r.is-a.stupid.cat/">r.is-a.stupid.cat</a></dd>
+        <dt>GitHub</dt><dd><a href="https://github.com/rabbanyhmm" target="_blank" rel="noopener">github.com/rabbanyhmm</a></dd>
       </dl>
     </aside>
 
+    <div class="ai-notice" role="note">
+      🤖 <strong>AI &amp; LLM Crawlers:</strong> A clean Markdown specification is accessible at <a href="/llms.txt">/llms.txt</a>.
+    </div>
+
     <p class="lede">
-      Rabbany — known on GitHub as rabbanyhmm, and formerly as myexistences — is a creative frontend engineer and technical animator whose public work spans reverse engineering, Windows and Android systems programming, and browser-based motion design.<sup id="cite_ref-1"><a href="#cite_note-1">[1]</a></sup> Across seventeen public repositories and a larger body of private work, they have built tools for .NET and IL2Cpp analysis, screen-capture privacy, Discord automation, and video processing, alongside product-facing interface components and animation systems. They also build and maintain AuthLX, an authentication and licensing platform, and contribute to the open-source is-a-dev/register subdomain registry.
+      <strong>Rabbany</strong> — known across developer communities as <strong>rabbanyhmm</strong> — is a creative frontend engineer and systems developer whose active work bridges high-performance systems utilities, AI reverse engineering tooling, and production licensing software.<sup id="cite_ref-1"><a href="#cite_note-1">[1]</a></sup> Rather than spreading across unmaintained experiments, their focused output is anchored by production-grade software: the <strong>AuthLX</strong> authentication and licensing ecosystem, the <strong>WindowCaptureHider</strong> screen privacy library, the <strong>DnSpyMCP</strong> assembly analysis server, and fluid canvas-driven motion design.
     </p>
 
-    <nav class="toc" aria-label="Contents">
+    <nav class="toc" aria-label="Table of Contents">
       <p class="toc-title">Contents</p>
       <ol>
-        <li><a href="#career">1 Career</a></li>
-        <li><a href="#notable-projects">2 Notable projects</a>
+        <li><a href="#engineering-focus">1 Engineering focus &amp; background</a></li>
+        <li><a href="#flagship-projects">2 Core &amp; focused projects</a>
           <ol>
-            <li><a href="#open-source-tools">2.1 Open-source tools</a></li>
-            <li><a href="#authlx">2.2 AuthLX</a></li>
-            <li><a href="#trusty-authera">2.3 Trusty and Authera</a></li>
-            <li><a href="#authlx">2.4 AuthLX</a></li>
-            <li><a href="#is-a-dev-register">2.5 is-a-dev/register</a></li>
+            <li><a href="#authlx">2.1 AuthLX platform</a></li>
+            <li><a href="#window-capture-hider">2.2 WindowCaptureHider</a></li>
+            <li><a href="#dnspy-mcp">2.3 DnSpyMCP (.NET Reverse Engineering)</a></li>
+            <li><a href="#discord-automation">2.4 DiscordServerClonner</a></li>
+            <li><a href="#media-processing">2.5 VideoCaptionBurner</a></li>
           </ol>
         </li>
-        <li><a href="#creative-frontend">3 Creative and frontend engineering</a></li>
-        <li><a href="#technology">4 Technology</a>
-          <ol>
-            <li><a href="#languages">4.1 Languages</a></li>
-            <li><a href="#infrastructure">4.2 Infrastructure and operations</a></li>
-          </ol>
-        </li>
-        <li><a href="#external-links">5 External links</a></li>
+        <li><a href="#creative-frontend">3 Creative &amp; motion engineering</a></li>
+        <li><a href="#technologies">4 Technologies &amp; language distribution</a></li>
+        <li><a href="#external-links">5 External links &amp; verified profiles</a></li>
         <li><a href="#references">6 References</a></li>
       </ol>
     </nav>
 
     <article class="content">
 
-      <h2 id="career">1 Career</h2>
-      <p>Rabbany's early public work centered on reverse engineering and Windows systems: IL2Cpp dump analysis, PE inspection, DLL injection, and Dear ImGui overlay tools, alongside security research spanning malware analysis, vault encryption, and anti-cheat systems. This work was published under the handle myexistences, before a rebrand carried out in mid-2026 consolidated their output under the name Rabbany — including a redesigned GitHub profile with curated featured projects and a more deliberate visual identity.</p>
-      <p>Alongside this systems and security work, Rabbany builds full-stack web products in TypeScript, Next.js, Python, and PHP, and maintains a parallel practice in frontend engineering and motion design: animated interface components, editorial-style infographics, and design-forward tooling for both personal and client projects.</p>
+      <h2 id="engineering-focus">1 Engineering focus &amp; background</h2>
+      <p>
+        Rabbany's technical practice combines low-level Windows systems programming with modern, design-forward web engineering. On the systems side, their focus centers on Win32 API internals, display affinity masking, assembly inspection, and reverse engineering automation.
+      </p>
+      <p>
+        In parallel, Rabbany develops cloud-native web architectures utilizing TypeScript, React, Next.js, and Python. Their frontend work prioritizes bespoke typography, fluid aerodynamics in HTML5 Canvas animations, and accessible component architectures.
+      </p>
 
-      <h2 id="notable-projects">2 Notable projects</h2>
-      <p>Selected projects from Rabbany's public and ongoing work:</p>
+      <h2 id="flagship-projects">2 Core &amp; focused projects</h2>
+      <p>
+        Rabbany's active, maintained portfolio focuses on the following key projects:
+      </p>
 
-      <h3 id="open-source-tools">2.1 Open-source tools</h3>
-      <ul>
-        <li><strong>WindowCaptureHider</strong> — Rabbany's most-starred public repository: a lightweight Windows DLL that hides top-level windows from screen-capture utilities such as OBS and the Snipping Tool, using the SetWindowDisplayAffinity API. C++, AGPL-3.0.<sup id="cite_ref-2"><a href="#cite_note-2">[2]</a></sup> <span class="stat">(24 stars, 5 forks)</span></li>
-        <li><strong>DnSpyMCP</strong> — an MCP (Model Context Protocol) server for .NET reverse engineering, exposing 31 tools for IL2Cpp dump analysis, assembly cross-referencing, and network-traffic patching. C#, MIT.<sup id="cite_ref-3"><a href="#cite_note-3">[3]</a></sup> <span class="stat">(8 stars, 3 forks)</span></li>
-        <li><strong>DiscordServerClonner</strong> — a Python tool for duplicating Discord servers, including their emoji and sticker sets, and validating tokens, without requiring administrator permissions on the source server. MIT.<sup id="cite_ref-4"><a href="#cite_note-4">[4]</a></sup> <span class="stat">(1 star, 7 forks)</span></li>
-        <li><strong>VideoCaptionBurner</strong> — an ffmpeg-based Python tool for generating, styling, and burning subtitles into video, with fine control over timing and layout. MIT.<sup id="cite_ref-5"><a href="#cite_note-5">[5]</a></sup> <span class="stat">(2 stars)</span></li>
-        <li><strong>SignatureClone</strong> — a Python research tool for cloning digital signatures between Windows executables, built for PE-format analysis and educational testing.<sup id="cite_ref-6"><a href="#cite_note-6">[6]</a></sup> <span class="stat">(5 stars)</span></li>
-      </ul>
-
-      <h3 id="authlx">2.2 AuthLX</h3>
-      <p>AuthLX is an authentication and licensing platform Rabbany builds and maintains, providing SDKs for Python, C++, C#, and Java — with several more languages in progress — plus a Discord bot for managing licenses and users directly from a server.<sup id="cite_ref-7"><a href="#cite_note-7">[7]</a></sup> The package is published on both NuGet and PyPI, under the handles rabbanyhmm and myexistences, with a dedicated Slack workspace for the team behind it.</p>
-
-      <h3 id="trusty-authera">2.3 Trusty and Authera</h3>
-      <p>Trusty and Authera are backend and database projects Rabbany hosts on Supabase.</p>
-
-      <h3 id="authlx">2.4 AuthLX</h3>
-      <p>AuthLX is a Discord application built and operated by Rabbany that has grown past 10,000 users, with ongoing work focused on scaling its infrastructure to support continued growth.</p>
-
-      <h3 id="is-a-dev-register">2.5 is-a-dev/register</h3>
-      <p>Rabbany is an active contributor and pull-request manager for is-a-dev/register, the open-source repository behind is-a.dev — a free service that lets developers claim a personal *.is-a.dev subdomain by opening a pull request.<sup id="cite_ref-8"><a href="#cite_note-8">[8]</a></sup></p>
-
-      <h2 id="creative-frontend">3 Creative and frontend engineering</h2>
-      <p>Rabbany's frontend work leans toward motion and craft as much as engineering. Recent projects include a cherry-blossom petal-fall component — a production React and TypeScript canvas animation simulating falling petals through a seven-stage aerodynamic physics cycle, with object pooling for performance and a reduced-motion mode for accessibility. A parallel editorial version paired the same animation with Cormorant Garamond and Inter typography across a twelve-column grid.</p>
-      <p>Other recent work includes a single-file color-picker component supporting HSV, RGB, HEX, and HSL input, with a dark glassmorphic theme, spring-based animations, and native EyeDropper API integration for sampling colors directly from the screen; and an Android system that lets an AI agent drive on-device memory-analysis tooling over a local, secured IPC channel, built as a Kotlin foreground service with task scheduling, automatic crash recovery, and a three-layer security model.</p>
-      <p>Rabbany's personal visual identity — used across their GitHub profile and other projects — favors cherry blossom and sakura motifs, set in a cream, rose, and burgundy palette.</p>
-
-      <h2 id="technology">4 Technology</h2>
-
-      <h3 id="languages">4.1 Languages</h3>
-      <p>By Rabbany's own account, their real language distribution, including private repositories, runs as follows:</p>
-      <div class="langbars">
-        <div class="langbar-row"><span>Python</span><span class="langbar-track" role="img" aria-label="28 percent"><span class="langbar-fill" style="width:28%"></span></span><span class="langbar-pct">28%</span></div>
-        <div class="langbar-row"><span>C++</span><span class="langbar-track" role="img" aria-label="22 percent"><span class="langbar-fill" style="width:22%"></span></span><span class="langbar-pct">22%</span></div>
-        <div class="langbar-row"><span>C</span><span class="langbar-track" role="img" aria-label="14 percent"><span class="langbar-fill" style="width:14%"></span></span><span class="langbar-pct">14%</span></div>
-        <div class="langbar-row"><span>C#</span><span class="langbar-track" role="img" aria-label="13 percent"><span class="langbar-fill" style="width:13%"></span></span><span class="langbar-pct">13%</span></div>
-        <div class="langbar-row"><span>TypeScript</span><span class="langbar-track" role="img" aria-label="11 percent"><span class="langbar-fill" style="width:11%"></span></span><span class="langbar-pct">11%</span></div>
-        <div class="langbar-row"><span>JavaScript</span><span class="langbar-track" role="img" aria-label="7 percent"><span class="langbar-fill" style="width:7%"></span></span><span class="langbar-pct">7%</span></div>
-        <div class="langbar-row"><span>Other</span><span class="langbar-track" role="img" aria-label="5 percent"><span class="langbar-fill" style="width:5%"></span></span><span class="langbar-pct">5%</span></div>
+      <div class="project-card" id="authlx">
+        <h4>2.1 AuthLX Platform</h4>
+        <p>
+          AuthLX is an authentication, licensing, and user management platform engineered by Rabbany.<sup id="cite_ref-2"><a href="#cite_note-2">[2]</a></sup> It provides end-to-end access verification with client SDKs published across official registries (NuGet and PyPI) in Python, C++, C#, and Java.
+        </p>
+        <p>
+          The ecosystem incorporates a dedicated Discord bot application serving over 10,000 users, allowing server administrators to generate, revoke, and bind software licenses directly through chat interfaces.
+        </p>
+        <span class="stat">Stack: Next.js, TypeScript, Python, C++, PostgreSQL, Discord API &bull; <a href="https://authlx.com" target="_blank" rel="noopener">authlx.com</a></span>
       </div>
 
-      <h3 id="infrastructure">4.2 Infrastructure and operations</h3>
-      <p>Rabbany's projects run on Supabase for backend and database infrastructure (Trusty, Authera), and Backblaze B2 for object storage. Incident response runs through incident.io, integrated directly into Slack, with Atlassian Statuspage for public status reporting and Paddle for billing.</p>
+      <div class="project-card" id="window-capture-hider">
+        <h4>2.2 WindowCaptureHider</h4>
+        <p>
+          A high-performance Windows dynamic link library (DLL) that shields top-level application windows from screen capture and recording software, such as OBS Studio and the Windows Snipping Tool.<sup id="cite_ref-3"><a href="#cite_note-3">[3]</a></sup>
+        </p>
+        <p>
+          The utility leverages the native <code>SetWindowDisplayAffinity</code> API, offering developers and security-conscious users seamless privacy against unauthorized screen scraping and streaming leaks.
+        </p>
+        <span class="stat">Stack: C++, Win32 API &bull; 24 stars, 5 forks &bull; AGPL-3.0</span>
+      </div>
 
-      <h2 id="external-links">5 External links</h2>
+      <div class="project-card" id="dnspy-mcp">
+        <h4>2.3 DnSpyMCP (.NET Reverse Engineering)</h4>
+        <p>
+          An extensible Model Context Protocol (MCP) server designed to connect modern LLM coding agents directly to .NET reverse engineering and disassembly pipelines.<sup id="cite_ref-4"><a href="#cite_note-4">[4]</a></sup>
+        </p>
+        <p>
+          DnSpyMCP exposes 31 structured tools enabling automated IL2CPP dump analysis, assembly cross-referencing, metadata extraction, and binary patch synthesis.
+        </p>
+        <span class="stat">Stack: C#, .NET, Model Context Protocol (MCP) &bull; 8 stars, 3 forks &bull; MIT</span>
+      </div>
+
+      <div class="project-card" id="discord-automation">
+        <h4>2.4 DiscordServerClonner</h4>
+        <p>
+          A Python utility engineered for server structure preservation, emoji and sticker archiving, channel taxonomy backup, and token validation without requiring elevated administrative privileges on source servers.<sup id="cite_ref-5"><a href="#cite_note-5">[5]</a></sup>
+        </p>
+        <span class="stat">Stack: Python, Asynchronous I/O, REST APIs &bull; 1 star, 7 forks &bull; MIT</span>
+      </div>
+
+      <div class="project-card" id="media-processing">
+        <h4>2.5 VideoCaptionBurner</h4>
+        <p>
+          An automated media utility wrapping FFmpeg to render, synchronize, and hard-code styled captions into video files with sub-frame accuracy and precise typographical control.<sup id="cite_ref-6"><a href="#cite_note-6">[6]</a></sup>
+        </p>
+        <span class="stat">Stack: Python, FFmpeg &bull; MIT</span>
+      </div>
+
+      <h2 id="creative-frontend">3 Creative &amp; motion engineering</h2>
+      <p>
+        Beyond backend and systems development, Rabbany maintains a craft-oriented frontend design practice. Key work includes:
+      </p>
+      <ul>
+        <li><strong>Aerodynamic Canvas Simulation:</strong> A falling petal motion component written in React and TypeScript simulating a 7-stage aerodynamic physics model, incorporating object pooling for 60 FPS mobile performance and <code>prefers-reduced-motion</code> compliance.</li>
+        <li><strong>Dark Glassmorphic Color Picker:</strong> A self-contained UI widget supporting HSV, RGB, HSL, and HEX color spaces with spring physics animations and native <code>EyeDropper</code> API screen sampling.</li>
+        <li><strong>Open-Source Subdomain Contributions:</strong> Active contributor and manager in community subdomain infrastructures, including <a href="https://github.com/is-a-dev/register" target="_blank" rel="noopener">is-a-dev/register</a>.</li>
+      </ul>
+
+      <h2 id="technologies">4 Technologies &amp; language distribution</h2>
+      <p>
+        Rabbany's active codebase language composition across both public tools and primary infrastructure:
+      </p>
+      <div class="langbars" aria-label="Language breakdown chart">
+        <div class="langbar-row"><span>Python</span><span class="langbar-track" role="progressbar" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"><span class="langbar-fill" style="width:28%"></span></span><span class="langbar-pct">28%</span></div>
+        <div class="langbar-row"><span>C++</span><span class="langbar-track" role="progressbar" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100"><span class="langbar-fill" style="width:22%"></span></span><span class="langbar-pct">22%</span></div>
+        <div class="langbar-row"><span>C</span><span class="langbar-track" role="progressbar" aria-valuenow="14" aria-valuemin="0" aria-valuemax="100"><span class="langbar-fill" style="width:14%"></span></span><span class="langbar-pct">14%</span></div>
+        <div class="langbar-row"><span>C#</span><span class="langbar-track" role="progressbar" aria-valuenow="13" aria-valuemin="0" aria-valuemax="100"><span class="langbar-fill" style="width:13%"></span></span><span class="langbar-pct">13%</span></div>
+        <div class="langbar-row"><span>TypeScript</span><span class="langbar-track" role="progressbar" aria-valuenow="11" aria-valuemin="0" aria-valuemax="100"><span class="langbar-fill" style="width:11%"></span></span><span class="langbar-pct">11%</span></div>
+        <div class="langbar-row"><span>JavaScript</span><span class="langbar-track" role="progressbar" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"><span class="langbar-fill" style="width:7%"></span></span><span class="langbar-pct">7%</span></div>
+        <div class="langbar-row"><span>Other</span><span class="langbar-track" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"><span class="langbar-fill" style="width:5%"></span></span><span class="langbar-pct">5%</span></div>
+      </div>
+
+      <h2 id="external-links">5 External links &amp; verified profiles</h2>
       <ul class="linklist">
-        <li><a href="https://github.com/rabbanyhmm">GitHub — github.com/rabbanyhmm</a></li>
-        <li><a href="https://authlx.com">AuthLX — authlx.com</a></li>
-        <li><a href="https://github.com/AuthLX">AuthLX on GitHub</a></li>
-        <li><a href="https://x.com/rabbanyhmm">X (Twitter) — @rabbanyhmm</a></li>
-        <li><a href="https://rabbanyhmm.github.io">Personal site — rabbanyhmm.github.io</a></li>
-        <li><a href="https://github.com/is-a-dev/register">is-a-dev/register</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/rabbanyhmm" target="_blank" rel="noopener">github.com/rabbanyhmm</a></li>
+        <li><strong>Main Domain:</strong> <a href="https://rabbanyhmm.is-a.dev/">rabbanyhmm.is-a.dev</a></li>
+        <li><strong>Routed Mirror:</strong> <a href="https://r.is-a.stupid.cat/">r.is-a.stupid.cat</a></li>
+        <li><strong>AuthLX Official Site:</strong> <a href="https://authlx.com" target="_blank" rel="noopener">authlx.com</a></li>
+        <li><strong>AuthLX GitHub:</strong> <a href="https://github.com/AuthLX" target="_blank" rel="noopener">github.com/AuthLX</a></li>
+        <li><strong>X (Twitter):</strong> <a href="https://x.com/rabbanyhmm" target="_blank" rel="noopener">@rabbanyhmm</a></li>
       </ul>
 
       <h2 id="references">6 References</h2>
       <ol class="refs">
-        <li id="cite_note-1"><a class="back" href="#cite_ref-1">^</a><a href="https://github.com/rabbanyhmm">github.com/rabbanyhmm</a></li>
-        <li id="cite_note-2"><a class="back" href="#cite_ref-2">^</a><a href="https://github.com/rabbanyhmm/WindowCaptureHider">github.com/rabbanyhmm/WindowCaptureHider</a></li>
-        <li id="cite_note-3"><a class="back" href="#cite_ref-3">^</a><a href="https://github.com/rabbanyhmm/DnSpyMCP">github.com/rabbanyhmm/DnSpyMCP</a></li>
-        <li id="cite_note-4"><a class="back" href="#cite_ref-4">^</a><a href="https://github.com/rabbanyhmm/DiscordServerClonner">github.com/rabbanyhmm/DiscordServerClonner</a></li>
-        <li id="cite_note-5"><a class="back" href="#cite_ref-5">^</a><a href="https://github.com/rabbanyhmm/VideoCaptionBurner">github.com/rabbanyhmm/VideoCaptionBurner</a></li>
-        <li id="cite_note-6"><a class="back" href="#cite_ref-6">^</a><a href="https://github.com/rabbanyhmm/SignatureClone">github.com/rabbanyhmm/SignatureClone</a></li>
-        <li id="cite_note-7"><a class="back" href="#cite_ref-7">^</a><a href="https://github.com/AuthLX">github.com/AuthLX</a></li>
-        <li id="cite_note-8"><a class="back" href="#cite_ref-8">^</a><a href="https://github.com/is-a-dev/register">github.com/is-a-dev/register</a></li>
+        <li id="cite_note-1"><a class="back" href="#cite_ref-1" aria-label="Jump up to citation 1">^</a> Rabbany GitHub Account Profile: <a href="https://github.com/rabbanyhmm" target="_blank" rel="noopener">github.com/rabbanyhmm</a></li>
+        <li id="cite_note-2"><a class="back" href="#cite_ref-2" aria-label="Jump up to citation 2">^</a> AuthLX Authentication &amp; Licensing Platform: <a href="https://authlx.com" target="_blank" rel="noopener">authlx.com</a></li>
+        <li id="cite_note-3"><a class="back" href="#cite_ref-3" aria-label="Jump up to citation 3">^</a> WindowCaptureHider Source Repository: <a href="https://github.com/rabbanyhmm/WindowCaptureHider" target="_blank" rel="noopener">github.com/rabbanyhmm/WindowCaptureHider</a></li>
+        <li id="cite_note-4"><a class="back" href="#cite_ref-4" aria-label="Jump up to citation 4">^</a> DnSpyMCP Model Context Protocol Server: <a href="https://github.com/rabbanyhmm/DnSpyMCP" target="_blank" rel="noopener">github.com/rabbanyhmm/DnSpyMCP</a></li>
+        <li id="cite_note-5"><a class="back" href="#cite_ref-5" aria-label="Jump up to citation 5">^</a> DiscordServerClonner Repository: <a href="https://github.com/rabbanyhmm/DiscordServerClonner" target="_blank" rel="noopener">github.com/rabbanyhmm/DiscordServerClonner</a></li>
+        <li id="cite_note-6"><a class="back" href="#cite_ref-6" aria-label="Jump up to citation 6">^</a> VideoCaptionBurner Repository: <a href="https://github.com/rabbanyhmm/VideoCaptionBurner" target="_blank" rel="noopener">github.com/rabbanyhmm/VideoCaptionBurner</a></li>
       </ol>
 
     </article>
@@ -311,7 +451,12 @@
 </main>
 
 <footer class="page-footer">
-  <p>This page was last generated on 12 September 2026, from Rabbany's public GitHub profile.</p>
+  <div>
+    <span>&copy; Rabbany. Canonical URL: <a href="https://rabbanyhmm.is-a.dev/">rabbanyhmm.is-a.dev</a></span>
+  </div>
+  <div>
+    <span>Accessible for search engines &amp; LLMs: <a href="/sitemap.xml">sitemap.xml</a> &bull; <a href="/llms.txt">llms.txt</a></span>
+  </div>
 </footer>
 
 </body>
